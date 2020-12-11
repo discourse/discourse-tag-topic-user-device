@@ -1,0 +1,4 @@
+plugins:
+  discourse_tag_topic_user_device_enabled:
+    default: true
+    client: false
