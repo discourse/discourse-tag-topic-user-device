@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# name: DiscourseTagTopicUserDevice
+# name: discourse-tag-topic-user-device
 # about: Tag topics with the user's OS via their user agent.
 # version: 1.0
 # authors: pmusaraj
