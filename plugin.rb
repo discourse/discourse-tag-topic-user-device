@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 # name: DiscourseTagTopicUserDevice
-# about: Tag topics with Mac/Windows via their user agent.
-# version: 0.1
+# about: Tag topics with the user's OS via their user agent.
+# version: 1.0
 # authors: pmusaraj
-# url: https://github.com/pmusaraj
+# url: https://github.com/discourse/discourse-tag-topic-user-device
 
 enabled_site_setting :discourse_tag_topic_user_device_enabled
 
