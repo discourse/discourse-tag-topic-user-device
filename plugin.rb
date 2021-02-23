@@ -28,9 +28,13 @@ after_initialize do
     end
     oss.select! {|os| [:macos, :windows].include? os }
 
-    topic.tags << mac if mac && oss.include?(:macos)
-    topic.tags << windows if windows && oss.include?(:windows)
 
-    topic.save!
+    ActiveRecord::Base.transaction do
+      topic.tags.reload
+      topic.tags << mac if mac && oss.include?(:macos)
+      topic.tags << windows if windows && oss.include?(:windows)
+
+      topic.save!
+    end
   end
 end
