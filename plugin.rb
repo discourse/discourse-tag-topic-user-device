@@ -31,8 +31,8 @@ after_initialize do
 
     ActiveRecord::Base.transaction do
       topic.tags.reload
-      topic.tags << mac if mac && oss.include?(:macos)
-      topic.tags << windows if windows && oss.include?(:windows)
+      topic.tags << mac if mac && oss.include?(:macos) && !topic.tags.include?(mac)
+      topic.tags << windows if windows && oss.include?(:windows) && !topic.tags.include?(windows)
 
       topic.save!
     end
