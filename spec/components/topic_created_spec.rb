@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe Topic do
-  let(:user) { Fabricate(:user) }
+  let(:user) { Fabricate(:user, refresh_auto_groups: true) }
   let(:pc) do
     PostCreator.new(
       user,
