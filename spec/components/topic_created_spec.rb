@@ -8,7 +8,7 @@ describe Topic do
     PostCreator.new(
       user,
       raw: "this is the new content for my topic",
-      title: "this is my new topic title"
+      title: "this is my new topic title",
     )
   end
 
@@ -41,7 +41,7 @@ describe Topic do
         user_id: user.id,
         rotated_at: 1.day.ago,
         created_at: 1.day.ago,
-        updated_at: 1.day.ago
+        updated_at: 1.day.ago,
       )
 
       _post = pc.create
@@ -61,7 +61,7 @@ describe Topic do
         user_id: user.id,
         rotated_at: 1.day.ago,
         created_at: 1.day.ago,
-        updated_at: 1.day.ago
+        updated_at: 1.day.ago,
       )
 
       _post = pc.create
@@ -81,7 +81,7 @@ describe Topic do
         user_id: user.id,
         rotated_at: 1.day.ago,
         created_at: 1.day.ago,
-        updated_at: 1.day.ago
+        updated_at: 1.day.ago,
       )
 
       UserAuthToken.create(
@@ -94,7 +94,7 @@ describe Topic do
         user_id: user.id,
         rotated_at: 1.day.ago,
         created_at: 1.day.ago,
-        updated_at: 1.day.ago
+        updated_at: 1.day.ago,
       )
 
       _post = pc.create
@@ -116,7 +116,7 @@ describe Topic do
         user_id: user.id,
         rotated_at: 1.day.ago,
         created_at: 1.day.ago,
-        updated_at: 1.day.ago
+        updated_at: 1.day.ago,
       )
 
       _post = pc.create

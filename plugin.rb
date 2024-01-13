@@ -8,26 +8,22 @@
 
 enabled_site_setting :discourse_tag_topic_user_device_enabled
 
-PLUGIN_NAME ||= 'DiscourseTagTopicUserDevice'
+PLUGIN_NAME ||= "DiscourseTagTopicUserDevice"
 
 after_initialize do
   DiscourseEvent.on(:topic_created) do |topic, opts, user|
-
     next if !topic.regular? || !user || !user.human? || user.staff?
 
-    mac = Tag.where(name: 'mac').first
-    windows = Tag.where(name: 'windows').first
+    mac = Tag.where(name: "mac").first
+    windows = Tag.where(name: "windows").first
 
     next if !mac && !windows
 
     user_agents = user&.user_auth_tokens.pluck(:user_agent)
 
     oss = Set.new
-    user_agents.each do |ua|
-      oss << BrowserDetection.os(ua)
-    end
-    oss.select! {|os| [:macos, :windows].include? os }
-
+    user_agents.each { |ua| oss << BrowserDetection.os(ua) }
+    oss.select! { |os| %i[macos windows].include? os }
 
     ActiveRecord::Base.transaction do
       topic.tags.reload
