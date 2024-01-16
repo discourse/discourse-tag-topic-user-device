@@ -12,14 +12,14 @@ describe Topic do
     )
   end
 
-  context "by default" do
-    it "does nothing with no tags" do
+  context "with no tags" do
+    it "does nothing" do
       _post = pc.create
       expect(_post.topic.tags).to be_empty
     end
   end
 
-  context "it works" do
+  context "with tags" do
     before do
       Tag.create(name: "mac")
       Tag.create(name: "windows")

@@ -19,7 +19,7 @@ after_initialize do
 
     next if !mac && !windows
 
-    user_agents = user&.user_auth_tokens.pluck(:user_agent)
+    user_agents = user&.user_auth_tokens&.pluck(:user_agent)
 
     oss = Set.new
     user_agents.each { |ua| oss << BrowserDetection.os(ua) }
