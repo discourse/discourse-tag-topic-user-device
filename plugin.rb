@@ -8,10 +8,8 @@
 
 enabled_site_setting :discourse_tag_topic_user_device_enabled
 
-PLUGIN_NAME ||= "DiscourseTagTopicUserDevice"
-
 after_initialize do
-  DiscourseEvent.on(:topic_created) do |topic, opts, user|
+  on(:topic_created) do |topic, opts, user|
     next if !topic.regular? || !user || !user.human? || user.staff?
 
     mac = Tag.where(name: "mac").first
